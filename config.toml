@@ -1,4 +1,4 @@
-baseURL = "https://blue-moon22.github.io"
+baseURL = "https://blue-moon22.github.io/blog"
 languageCode = "en"
 title = "Vicky's Blog"
 theme = "hugo-nuo"
