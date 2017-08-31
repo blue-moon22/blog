@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Computing on Vicky&#39;s Blog</title>
-    <link>https://blue-moon22.github.io/tags/computing/</link>
+    <link>https://blue-moon22.github.io/blog/tags/computing/</link>
     <description>Recent content in Computing on Vicky&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.</copyright>
     <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blue-moon22.github.io/tags/computing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blue-moon22.github.io/blog/tags/computing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Women in Computing Seminar Series</title>
-      <link>https://blue-moon22.github.io/post/women-in-computing/</link>
+      <link>https://blue-moon22.github.io/blog/post/women-in-computing/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/post/women-in-computing/</guid>
+      <guid>https://blue-moon22.github.io/blog/post/women-in-computing/</guid>
       <description>On 13th July, Dr Simone Ecker, Research Associate from the UCL Cancer Institute presented her research for the Women in Computing Seminar Series. Simone talked about epigenetics and how she uses bioinformatics to answer questions on DNA methylation and gene expression variability in human blood cells.
 It was a full-house and Simone&amp;rsquo;s talk was well-received, generating lots of discussion about how variability is overlooked across many disciplines of statistics.
 To read about her research, check out UCL&amp;rsquo;s recent news story on her work.</description>
