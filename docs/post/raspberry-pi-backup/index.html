@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>Make an automatic back-up server using an old raspberry pi</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="Vicky Butt" />
+  <meta name="description" content="This is a nice and easy project if you need to back up lots of data automatically from your workspace - in my case genomic data from an HPC cluster I wanted to back-up locally in case of disaster. I had an old raspberry pi lying around and I thought I&amp;rsquo;d put it to good use. The benefits of using a raspberry pi instead of a laptop or PC is you can just leave your raspberry pi on and let it do its thing." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@vickybluemoon" />
+    <meta name="twitter:title" content="Make an automatic back-up server using an old raspberry pi" />
+    <meta name="twitter:description" content="This is a nice and easy project if you need to back up lots of data automatically from your workspace - in my case genomic data from an HPC cluster I wanted to back-up locally in case of disaster. I had an old raspberry pi lying around and I thought I&amp;rsquo;d put it to good use. The benefits of using a raspberry pi instead of a laptop or PC is you can just leave your raspberry pi on and let it do its thing." />
+    <meta name="twitter:image" content="https://blue-moon22.github.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.26" />
+
+
+<link rel="canonical" href="https://blue-moon22.github.io/post/raspberry-pi-backup/" />
+<link rel="alternative" href="https://blue-moon22.github.io/index.xml" title="Vicky&#39;s Blog" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Vicky&#39;s Blog" />
+<meta name="msapplication-tooltip" content="Vicky&#39;s Blog" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://blue-moon22.github.io/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://blue-moon22.github.io/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://blue-moon22.github.io/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://blue-moon22.github.io/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://blue-moon22.github.io/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://blue-moon22.github.io/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.1/video-js.min.css" />
+
+<link rel="stylesheet" href="https://blue-moon22.github.io/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.1/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/2014.01.31/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.0/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://blue-moon22.github.io/images/dna.png" alt="Avatar">
+  
+  <h2 class="title">Vicky&#39;s Blog</h2>
+  
+  <p class="subtitle">Computational Biology PhD Student @ King&#39;s College London</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item  is-active"><a href="https://blue-moon22.github.io/">Home</a></li>
+      
+        <li class="menu-item "><a href="https://blue-moon22.github.io/about/">About Me</a></li>
+      
+        <li class="menu-item "><a href="https://blue-moon22.github.io/women-in-stem/">Opportunities for women in STEM</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+      <li class="social-item">
+        <a href="mailto:vicky.butt10@gmail.com" title="Email"><span class="icon icon-email"></span></a>
+      </li>
+
+      
+      <li class="social-item">
+        <a href="//github.com/blue-moon22" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/vickybluemoon" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="//www.linkedin.com/in/victoria-butt-31b2aa126" title="Linkedin"><span class="icon icon-linkedin"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://blue-moon22.github.io/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">Make an automatic back-up server using an old raspberry pi</h1>
+      <p class="post-meta">@Vicky Butt · Aug 8, 2017 · 4 min read</p>
+    </header>
+    <article class="post-content">
+
+<p>This is a nice and easy project if you need to back up lots of data automatically from your workspace - in my case genomic data from an HPC cluster I wanted to back-up locally in case of disaster. I had an old raspberry pi lying around and I thought I&rsquo;d put it to good use. The benefits of using a raspberry pi instead of a laptop or PC is you can just leave your raspberry pi on and let it do its thing. (Note, I do not cover transferring and copying files with version control. Instead, I would recommend <a href="https://opensource.com/life/16/3/turn-your-old-raspberry-pi-automatic-backup-server">this tutorial</a>)</p>
+
+<p>You will need:</p>
+
+<ul>
+<li>a raspberry pi (including SD card with Raspbian installed)</li>
+<li>a hard drive</li>
+<li>accessories for your raspberry pi, i.e. monitor with HDMI cable, USB keyboard, USB mouse</li>
+<li>an ethernet cable and an ethernet connection</li>
+</ul>
+
+<h3 id="step-1-setup-your-pi-and-hard-drive">STEP 1: Setup your pi and hard drive</h3>
+
+<p>Switch on your raspberry pi and connect your mouse, keyboard, hard drive, ethernet cable and monitor. (I realised that my raspberry pi had to share 2 USB ports with 3 USB devices - mouse, keyboard and hard drive, which meant I had to sometimes exchange my mouse and keyboard. Fun times. You could get around this by getting a multiport USB device if you have to)</p>
+
+<p>It is likely you may not be able to write to your hard drive when you connect it to your pi. Resolve this in your terminal by unmounting your hard drive and re-mounting to a new directory.</p>
+
+<p>Unmount your drive</p>
+
+<pre><code>sudo umount /media/name-of-your-drive
+</code></pre>
+
+<p>Create a new directory (it can be any name, like backup-drive)</p>
+
+<pre><code>sudo mkdir /media/backup-drive
+</code></pre>
+
+<p>Re-mount your drive to the new directory (/dev/sda1 should be the id the computer assigns the drive)</p>
+
+<pre><code>sudo mount -t ntfs -o uid=pi,gid=pi /dev/sda1 /media/backup-drive/
+</code></pre>
+
+<p>Check the permissions</p>
+
+<pre><code>cd /media/backup-drive/
+ls -l
+</code></pre>
+
+<p>If it outputs something like &ldquo;rwxrwxrwx&rdquo; for the directories in your drive, then it should be writable.</p>
+
+<h3 id="step-2-create-your-backup-script">STEP 2: Create your backup script</h3>
+
+<p>First create a new bash script</p>
+
+<pre><code>nano backup.sh
+</code></pre>
+
+<p>In your script type the following, press Ctrl X, Y then Enter to save the file</p>
+
+<pre><code>#!/bin/bash
+
+rsync -avz &lt;username&gt;@&lt;login-node&gt;:~/path/to/folder/ /media/backup-drive/path/to/folder --ignore-existing --delete
+</code></pre>
+
+<p>The - -ignore-existing option means the file on your hard drive is not replaced again if the same file is still in the cluster. The - -delete option means the file on your hard drive is not removed if the file in the cluster is removed. I would recommend running the command first in the terminal with the - -dry-run option to check the output list of files you plan to transfer over.</p>
+
+<p>Finally you need to allow permission to execute backup.sh. In the terminal:</p>
+
+<pre><code>chmod 755 backup.sh
+</code></pre>
+
+<h3 id="step-3-make-the-login-automatic">STEP 3: Make the login automatic</h3>
+
+<p>To avoid having to manually enter your password for the cluster every time you execute the script, create a public key. (This is less secure though so make sure you&rsquo;re happy to do this.)</p>
+
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+
+<p>Enter, and leave the next fields blank to create a blank private key.</p>
+
+<pre><code>Enter file in which to save the key:
+</code></pre>
+
+<p>Press enter</p>
+
+<pre><code>Enter passphrase (empty for no passphrase):
+</code></pre>
+
+<p>Press enter for no passphrase. (This is less secure but has the benefit of not having to enter a passphrase when executing the backup script)</p>
+
+<p>Then transfer the public key to a .ssh directory in your cluster home directory and enter your password</p>
+
+<pre><code>cat ~/.ssh/id_rsa.pub | ssh &lt;username&gt;@&lt;login-node&gt; &quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&quot;
+</code></pre>
+
+<h3 id="step-4-schedule-your-backup-script-to-run">STEP 4: Schedule your backup script to run</h3>
+
+<p>You need to create a cron schedule:</p>
+
+<pre><code>crontab -e
+</code></pre>
+
+<p>Read the instructions and add your schedule at the end of the script. For example if you want to execute the backup script every Monday at 9am then write:</p>
+
+<pre><code>0 9 * * 1 /path/to/backup.sh
+</code></pre>
+
+<p>Now your raspberry pi is all set! As long as you leave your raspberry pi connected to the power and the ethernet, it should back up automatically.</p>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://blue-moon22.github.io/tags/raspberry-pi"><span class="tag">Raspberry Pi</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 Vicky&#39;s Blog</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script src="//cdn.bootcss.com/video.js/6.2.1/video.min.js"></script>
+<script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://blue-moon22.github.io/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98918921-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>
