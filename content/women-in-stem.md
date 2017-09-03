@@ -8,7 +8,7 @@ weight: 40
 
 ## Learn to code with these friendly communities:
 
-* Hear from women in computing @ [The Women in Computing Seminar Series](https://www.meetup.com/researchers-code/) (beginners to advanced)
+* Hear from women in computing @ [researc/hers code](https://www.meetup.com/researchers-code/) (beginners to advanced)
 * Learn R @ [R-Ladies London](https://www.meetup.com/rladies-london/) (beginners to advanced)
 * Machine Learning @ [The AI CLub](https://www.meetup.com/ai-club/) (intermediate to advanced)
 * Create websites @ [Code First: Girls](http://www.codefirstgirls.org.uk/) (beginners)

@@ -25,8 +25,9 @@ Learn more about [Innovation Forum](http://inno-forum.org) and check out the Lon
 Check out the [meetup group](https://www.meetup.com/researchers-code/), [recent seminar](/post/women-in-computing) and [apply](https://goo.gl/forms/zjrSWM2gBbrgwX5l1) to be a speaker
 
 
-### External blogs and speaker
+### External blogs, speaking and teaching
 
+- [Code Demo for Women in Kaggle](http://www.womeninkaggle.co.uk/punks-of-science/)
 - [Panelist for Code n' Cloud at Microsoft](https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x2132200b09c)
 - [Speaker for R-Ladies Researchers and Students Community Launch](/blog/rladies-research-launch/)
 - [External blog for Soapbox Science: Why women in science should learn to code](http://soapboxscience.org/women-science-learn-code/)
