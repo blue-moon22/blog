@@ -27,6 +27,7 @@ Check out the [meetup group](https://www.meetup.com/researchers-code/), [recent 
 
 ### External blogs, speaking and teaching
 
+- Speaker for TECHKNOW Ada Lovelace Day - 5 Ways to Help Women in STEM
 - [Code Demo for Women in Kaggle](http://www.womeninkaggle.co.uk/punks-of-science/)
 - [Panelist for Code n' Cloud at Microsoft](https://www.microsoftevents.com/profile/form/index.cfm?PKformID=0x2132200b09c)
 - [Speaker for R-Ladies Researchers and Students Community Launch](/blog/rladies-research-launch/)
