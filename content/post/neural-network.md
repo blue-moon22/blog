@@ -1,15 +1,13 @@
 ---
-title: Interview-Proof Deep Neural Network
+title: A Simple Deep Neural Network in R
 tags: ["neural network", "machine learning", "deep learning"]
 date: 2017-11-19
 ---
 
-Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavey answer). I haven't posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. This may be useful for those of you who need to prep up on those technical interview questions.
+Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven't posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function).
 
 ```
-#### Deep Neural Network (one hidden layer, with Rectified Linear Unit (ReLU), L2 regularisation and Softmax loss function)
-
-# Train DNN (for one hidden layer)
+#### Training DNN Function
 train.dnn <- function(predictorcols, labelcol, traindata = data,
                       hidden = 6, maxiterations = 2000, abstol=1e-2, 
                       learningrate= 1e-2, regularisation = 1e-3) 
@@ -100,7 +98,8 @@ train.dnn <- function(predictorcols, labelcol, traindata = data,
   return(model)
 }
 
-# Prediction function
+#### Prediction
+
 predict.dnn <- function(model, data) {
   data <- as.matrix(data) # Change to matrix
   
@@ -119,6 +118,8 @@ predict.dnn <- function(model, data) {
   labels_pred <- max.col(probs)
   return(labels_pred)
 }
+
+#### Predict iris species
 
 # Read iris data
 data(iris)

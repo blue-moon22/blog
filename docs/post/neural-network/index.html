@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
 
   
-  <title>Interview-Proof Deep Neural Network</title>
+  <title>A Simple Deep Neural Network in R</title>
 
   
   
@@ -15,14 +15,14 @@
 
   
   <meta name="author" content="Vicky Butt" />
-  <meta name="description" content="Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavey answer). I haven&amp;rsquo;t posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. This may be useful for those of you who need to prep up on those technical interview questions." />
+  <meta name="description" content="Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&amp;rsquo;t posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function)." />
 
   
   
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@vickybluemoon" />
-    <meta name="twitter:title" content="Interview-Proof Deep Neural Network" />
-    <meta name="twitter:description" content="Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavey answer). I haven&amp;rsquo;t posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. This may be useful for those of you who need to prep up on those technical interview questions." />
+    <meta name="twitter:title" content="A Simple Deep Neural Network in R" />
+    <meta name="twitter:description" content="Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&amp;rsquo;t posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function)." />
     <meta name="twitter:image" content="https://blue-moon22.github.io/img/avatar.jpg" />
   
 
@@ -191,14 +191,12 @@
 
   <section class="main post-detail">
     <header class="post-header">
-      <h1 class="post-title">Interview-Proof Deep Neural Network</h1>
+      <h1 class="post-title">A Simple Deep Neural Network in R</h1>
       <p class="post-meta">@Vicky Butt · Nov 19, 2017 · 3 min read</p>
     </header>
-    <article class="post-content"><p>Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavey answer). I haven&rsquo;t posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. This may be useful for those of you who need to prep up on those technical interview questions.</p>
+    <article class="post-content"><p>Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&rsquo;t posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function).</p>
 
-<pre><code>#### Deep Neural Network (one hidden layer, with Rectified Linear Unit (ReLU), L2 regularisation and Softmax loss function)
-
-# Train DNN (for one hidden layer)
+<pre><code>#### Training DNN Function
 train.dnn &lt;- function(predictorcols, labelcol, traindata = data,
                       hidden = 6, maxiterations = 2000, abstol=1e-2, 
                       learningrate= 1e-2, regularisation = 1e-3) 
@@ -289,7 +287,8 @@ train.dnn &lt;- function(predictorcols, labelcol, traindata = data,
   return(model)
 }
 
-# Prediction function
+#### Prediction
+
 predict.dnn &lt;- function(model, data) {
   data &lt;- as.matrix(data) # Change to matrix
   
@@ -308,6 +307,8 @@ predict.dnn &lt;- function(model, data) {
   labels_pred &lt;- max.col(probs)
   return(labels_pred)
 }
+
+#### Predict iris species
 
 # Read iris data
 data(iris)
