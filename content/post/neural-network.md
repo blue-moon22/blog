@@ -4,7 +4,7 @@ tags: ["neural network", "machine learning", "deep learning"]
 date: 2017-11-19
 ---
 
-Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven't posted in a while so thought this would be a good opportunity to go through a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function).
+Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven't posted in a while so thought this would be a good to show a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function).
 
 ```
 #### Training DNN Function
