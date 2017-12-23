@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>blog on Vicky&#39;s Website</title>
+    <link>https://blue-moon22.github.io/index/post/blog/</link>
+    <description>Recent content in blog on Vicky&#39;s Website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.</copyright>
+    <lastBuildDate>Sat, 23 Dec 2017 21:52:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://blue-moon22.github.io/index/post/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Women in Computing Seminar Series</title>
+      <link>https://blue-moon22.github.io/index/post/blog/women-in-computing/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blue-moon22.github.io/index/post/blog/women-in-computing/</guid>
+      <description>On 13th July, Dr Simone Ecker, Research Associate from the UCL Cancer Institute presented her research for the Women in Computing Seminar Series. Simone talked about epigenetics and how she uses bioinformatics to answer questions on DNA methylation and gene expression variability in human blood cells.
+It was a full-house and Simone&amp;rsquo;s talk was well-received, generating lots of discussion about how variability is overlooked across many disciplines of statistics.
+To read about her research, check out UCL&amp;rsquo;s recent news story on her work.</description>
+    </item>
+    
+    <item>
+      <title>What is my PhD?</title>
+      <link>https://blue-moon22.github.io/index/post/blog/phd/</link>
+      <pubDate>Thu, 15 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blue-moon22.github.io/index/post/blog/phd/</guid>
+      <description>Realised I haven&amp;rsquo;t said much on the PhD front. Rotations are now over, and I&amp;rsquo;m currently drafting the PhD project. What I can be sure of is it contains many &amp;lsquo;omes&amp;rsquo; and &amp;lsquo;omics&amp;rsquo;&amp;hellip;
+Here&amp;rsquo;s a sneak peak at what I&amp;rsquo;ll be looking at:
+1) Analysis of metagenomic data of microbes in the oral cavity. Basically all the microbes&amp;rsquo; DNA in a mouth..
+2) Mobilome (funnier said aloud). Lots of mobile genetic elements, the genes that move across microbes:</description>
+    </item>
+    
+    <item>
+      <title>R-Ladies Researchers &amp; Students Community Launch</title>
+      <link>https://blue-moon22.github.io/index/post/blog/rladies-research-launch/</link>
+      <pubDate>Fri, 28 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blue-moon22.github.io/index/post/blog/rladies-research-launch/</guid>
+      <description>Last week, I gave a bioinformatics talk and workshop for the launch event of R-Ladies London&amp;rsquo;s new Researchers and Students Community. R-Ladies is a world-wide organisation to promote gender diversity in the R community. The R-Ladies London branch has been running for just over a year, and have been providing workshops (in R, Github) for beginners to advanced level.
+The R-Ladies community and attendees of these events are mainly gender minorities from research and academia.</description>
+    </item>
+    
+    <item>
+      <title>First Blog Post</title>
+      <link>https://blue-moon22.github.io/index/post/blog/first-post/</link>
+      <pubDate>Thu, 27 Apr 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://blue-moon22.github.io/index/post/blog/first-post/</guid>
+      <description>Hello, world! Welcome to my new blog. I will be writing about:
+ some of the cool research I&amp;rsquo;m doing pickings of bioinformatics and programming outreach events that I will be doing  Watch this space&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8" />
+
+  
+  <title>A Simple Deep Neural Network in R</title>
+
+  
+  
+
+
+
+
+  
+  <meta name="author" content="Vicky Butt" />
+  <meta name="description" content="Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&amp;rsquo;t posted in a while so thought this would be a good to show a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function)." />
+
+  
+  
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@vickybluemoon" />
+    <meta name="twitter:title" content="A Simple Deep Neural Network in R" />
+    <meta name="twitter:description" content="Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&amp;rsquo;t posted in a while so thought this would be a good to show a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function)." />
+    <meta name="twitter:image" content="https://blue-moon22.github.io/img/avatar.jpg" />
+  
+
+
+
+
+<meta name="generator" content="Hugo 0.31.1" />
+
+
+<link rel="canonical" href="https://blue-moon22.github.io/index/post/code/neural-network/" />
+<link rel="alternative" href="https://blue-moon22.github.io/index/index.xml" title="Vicky&#39;s Website" type="application/atom+xml" />
+
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="format-detection" content="telephone=no,email=no,adress=no" />
+<meta http-equiv="Cache-Control" content="no-transform" />
+
+
+<meta name="robots" content="index,follow" />
+<meta name="referrer" content="origin-when-cross-origin" />
+
+
+
+
+
+
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Vicky&#39;s Website" />
+<meta name="msapplication-tooltip" content="Vicky&#39;s Website" />
+<meta name='msapplication-navbutton-color' content="#5fbf5e" />
+<meta name="msapplication-TileColor" content="#5fbf5e" />
+<meta name="msapplication-TileImage" content="/img/tile-image-windows.png" />
+<link rel="icon" href="https://blue-moon22.github.io/index/img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="https://blue-moon22.github.io/index/img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="https://blue-moon22.github.io/index/img/favicon-32x32.png" />
+<link rel="icon" sizes="192x192" href="https://blue-moon22.github.io/index/img/touch-icon-android.png" />
+<link rel="apple-touch-icon" href="https://blue-moon22.github.io/index/img/touch-icon-apple.png" />
+<link rel="mask-icon" href="https://blue-moon22.github.io/index/img/safari-pinned-tab.svg" color="#5fbf5e" />
+
+
+
+<link rel="stylesheet" href="//cdn.bootcss.com/video.js/6.2.1/video-js.min.css" />
+
+<link rel="stylesheet" href="https://blue-moon22.github.io/index/css/bundle.css" />
+
+
+  
+  <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="//cdn.bootcss.com/video.js/6.2.1/ie8/videojs-ie8.min.js"></script>
+  <![endif]-->
+
+<!--[if lte IE 11]>
+    <script src="//cdn.bootcss.com/classlist/2014.01.31/classList.min.js"></script>
+  <![endif]-->
+
+
+<script src="//cdn.bootcss.com/object-fit-images/3.2.3/ofi.min.js"></script>
+
+
+<script src="//cdn.bootcss.com/smooth-scroll/12.1.0/js/smooth-scroll.polyfills.min.js"></script>
+
+
+</head>
+  <body>
+    
+    <div class="suspension">
+      <a title="Go to top" class="to-top is-hide"><span class="icon icon-up"></span></a>
+      
+        
+      
+    </div>
+    
+    
+  <header class="site-header">
+  <img class="avatar" src="https://blue-moon22.github.io/index/images/dna.png" alt="Avatar">
+  
+  <h2 class="title">Vicky&#39;s Website</h2>
+  
+  <p class="subtitle">Data Science and Bioinformatics PhD Student @ King&#39;s College London</p>
+  <button class="menu-toggle" type="button">
+    <span class="icon icon-menu"></span>
+  </button>
+  <nav class="site-menu collapsed">
+    <h2 class="offscreen">Main Menu</h2>
+    <ul class="menu-list">
+      
+      
+      
+      
+        <li class="menu-item "><a href="https://blue-moon22.github.io/index/">home</a></li>
+      
+        <li class="menu-item "><a href="https://blue-moon22.github.io/index/post/code/">Code</a></li>
+      
+        <li class="menu-item "><a href="https://blue-moon22.github.io/index/post/blog/">Blog</a></li>
+      
+        <li class="menu-item "><a href="https://blue-moon22.github.io/index/about/">About</a></li>
+      
+    </ul>
+  </nav>
+  <nav class="social-menu collapsed">
+    <h2 class="offscreen">Social Networks</h2>
+    <ul class="social-list">
+
+      
+
+      
+      <li class="social-item">
+        <a href="//github.com/blue-moon22" title="GitHub"><span class="icon icon-github"></span></a>
+      </li>
+
+      <li class="social-item">
+        <a href="//twitter.com/vickybluemoon" title="Twitter"><span class="icon icon-twitter"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="//www.linkedin.com/in/victoria-butt-31b2aa126" title="Linkedin"><span class="icon icon-linkedin"></span></a>
+      </li>
+
+      
+
+      
+
+      
+
+      <li class="social-item">
+        <a href="https://blue-moon22.github.io/index/index.xml"><span class="icon icon-rss" title="RSS"></span></a>
+      </li>
+
+    </ul>
+  </nav>
+</header>
+
+  <section class="main post-detail">
+    <header class="post-header">
+      <h1 class="post-title">A Simple Deep Neural Network in R</h1>
+      <p class="post-meta">@Vicky Butt · Nov 19, 2017 · 3 min read</p>
+    </header>
+    <article class="post-content"><p>Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&rsquo;t posted in a while so thought this would be a good to show a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function).</p>
+
+<pre><code>#### Training DNN Function
+train.dnn &lt;- function(predictorcols, labelcol, traindata = data,
+                      hidden = 6, maxiterations = 2000, abstol=1e-2, 
+                      learningrate= 1e-2, regularisation = 1e-3) 
+{
+  # Extract predictors and label
+  predictors &lt;- as.matrix(traindata[,predictorcols])
+  label &lt;- traindata[,labelcol]
+  
+  # Number of observations
+  num_obs &lt;- nrow(traindata)
+
+  # create index for both row and col
+  label_index &lt;- cbind(1:num_obs, label)
+  
+  # number of input predictors
+  predictor_num &lt;- ncol(predictors)
+  
+  # number of categories for classification
+  num_unique_labels &lt;- length(unique(label))
+  
+  # initialise weights and biases
+  W1 &lt;- 0.01*matrix(rnorm(predictor_num*hidden, sd=0.5), nrow=predictor_num, ncol=hidden)
+  b1 &lt;- matrix(0, nrow=1, ncol=hidden)
+  
+  W2 &lt;- 0.01*matrix(rnorm(predictor_num*hidden, sd=0.5), nrow=hidden, ncol=num_unique_labels)
+  b2 &lt;- matrix(0, nrow=1, ncol=num_unique_labels)
+  
+  # Training the network
+  i &lt;- 1
+  while(i &lt; maxiterations || loss &lt; abstol) {
+
+    #### Feed Forward
+
+    # Matrix multiplication of predictors and 1st weights, add 1st biases
+    hidden_layer &lt;- sweep(predictors %*% W1, 2, b1, '+')
+    # ReLU Activation Model: return value if greater than 0, otherwise return 0
+    hidden_layer &lt;- pmax(hidden_layer, 0)
+    # Matrix multiplication of hidden layer and 2nd weights, add 2nd biases
+    score &lt;- sweep(hidden_layer %*% W2, 2, b2, '+')
+    
+    # Softmax Loss Function: creates a probability distribution
+    score_exp &lt;- exp(score)
+    probs &lt;- sweep(score_exp, 1, rowSums(score_exp), '/')
+    
+    # Compute the data loss
+    true_logprobs &lt;- -log(probs[label_index])
+    data_loss &lt;- sum(true_logprobs)/num_obs
+    # L2 Regularisation Loss to prevent overfitting
+    reg_loss &lt;- 0.5*regularisation* (sum(W1*W1) + sum(W2*W2))
+    # Total loss
+    loss &lt;- data_loss + reg_loss
+
+    #### Backpropagation to minimise the loss
+    
+    # Get gradient of scores
+    dscores &lt;- probs
+    dscores[label_index] &lt;- dscores[label_index] - 1
+    dscores &lt;- dscores/num_obs
+    
+    # Backpropagate into weights and biases
+    dW2 &lt;- t(hidden_layer) %*% dscores
+    db2 &lt;- colSums(dscores)
+    
+    dhidden &lt;- dscores %*% t(W2)
+    dhidden[hidden_layer &lt;= 0] &lt;- 0
+    
+    dW1 &lt;- t(predictors) %*% dhidden
+    db1 &lt;- colSums(dhidden)
+    
+    # Update weights and biases
+    dW2 &lt;- dW2 + regularisation*W2
+    dW1 &lt;- dW1 + regularisation*W1
+    
+    W1 &lt;- W1- learningrate*dW1
+    b1 &lt;- b1 - learningrate*db1
+    
+    W2 &lt;- W2-learningrate*dW2
+    b2 &lt;- b2 - learningrate*db2
+    
+    i &lt;- i + 1
+  }
+  
+  #### Return the final model
+  
+  model &lt;- list(predictor_num = predictor_num, hidden = hidden, 
+                num_unique_labels = num_unique_labels,
+                W1 = W1, b1 = b1, W2 = W2, b2 = b2)
+  return(model)
+}
+
+#### Prediction
+
+predict.dnn &lt;- function(model, data) {
+  data &lt;- as.matrix(data) # Change to matrix
+  
+  # Feed Forward
+  hidden_layer &lt;- sweep(data %*% model$W1 , 2, model$b1, '+')
+  
+  # ReLU
+  hidden_layer &lt;- pmax(hidden_layer, 0)
+  score &lt;- sweep(hidden_layer %*% model$W2, 2, model$b2, '+')
+  
+  # Softmax Loss Function
+  score_exp &lt;- exp(score)
+  probs &lt;- sweep(score_exp, 1, rowSums(score_exp), '/')
+  
+  # Select max possibility
+  labels_pred &lt;- max.col(probs)
+  return(labels_pred)
+}
+
+#### Predict iris species
+
+# Read iris data
+data(iris)
+iris &lt;- data.frame(iris, stringsAsFactors = F)
+
+# Make the example reproducible
+set.seed(123)
+
+# Split into train and test
+samp &lt;- c(sample(1:50,25), sample(51:100,25), sample(101:150,25))
+
+# Train DNN
+trained_model &lt;- train.dnn(predictorcols=1:4, labelcol=5, traindata=iris[samp,], 
+                           hidden=6, maxiterations=2000)
+
+# Predict from model
+predicted_labels &lt;- predict.dnn(trained_model, iris[-samp, -5])
+
+# Continguency table
+cont_table &lt;- table(iris[-samp,5], predicted_labels)
+cont_table
+
+# Accuracy
+sum(diag(cont_table))/sum(cont_table)
+</code></pre>
+</article>
+    <footer class="post-footer">
+      
+      <ul class="post-tags">
+        
+          <li><a href="https://blue-moon22.github.io/index/tags/neural-network"><span class="tag">Neural Network</span></a></li>
+        
+          <li><a href="https://blue-moon22.github.io/index/tags/machine-learning"><span class="tag">Machine Learning</span></a></li>
+        
+          <li><a href="https://blue-moon22.github.io/index/tags/deep-learning"><span class="tag">Deep Learning</span></a></li>
+        
+      </ul>
+      
+      <p class="post-copyright">
+        © This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.
+      </p>
+    </footer>
+    
+      
+    
+  </section>
+  <footer class="site-footer">
+  <p>© 2017 Vicky&#39;s Website</p>
+  <p>Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a> with theme <a href="https://github.com/laozhu/hugo-nuo" target="_blank">Nuo</a>.</p>
+  
+</footer>
+
+
+
+<script src="//cdn.bootcss.com/video.js/6.2.1/video.min.js"></script>
+<script src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<script src="https://blue-moon22.github.io/index/js/bundle.js"></script>
+
+
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-98918921-1', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+  </body>
+</html>

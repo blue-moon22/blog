@@ -1,68 +1,86 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Vicky&#39;s Blog</title>
-    <link>https://blue-moon22.github.io/blog/tags/</link>
-    <description>Recent content in Tags on Vicky&#39;s Blog</description>
+    <title>Tags on Vicky&#39;s Website</title>
+    <link>https://blue-moon22.github.io/index/tags/</link>
+    <description>Recent content in Tags on Vicky&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.</copyright>
     <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blue-moon22.github.io/blog/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blue-moon22.github.io/index/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Computing</title>
-      <link>https://blue-moon22.github.io/blog/tags/computing/</link>
+      <link>https://blue-moon22.github.io/index/tags/computing/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/tags/computing/</guid>
+      <guid>https://blue-moon22.github.io/index/tags/computing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deep Learning</title>
-      <link>https://blue-moon22.github.io/blog/tags/deep-learning/</link>
+      <link>https://blue-moon22.github.io/index/tags/deep-learning/</link>
       <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/tags/deep-learning/</guid>
+      <guid>https://blue-moon22.github.io/index/tags/deep-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://blue-moon22.github.io/blog/tags/machine-learning/</link>
+      <link>https://blue-moon22.github.io/index/tags/machine-learning/</link>
       <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/tags/machine-learning/</guid>
+      <guid>https://blue-moon22.github.io/index/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Neural Network</title>
-      <link>https://blue-moon22.github.io/blog/tags/neural-network/</link>
+      <link>https://blue-moon22.github.io/index/tags/neural-network/</link>
       <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/tags/neural-network/</guid>
+      <guid>https://blue-moon22.github.io/index/tags/neural-network/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Raspberry Pi</title>
-      <link>https://blue-moon22.github.io/blog/tags/raspberry-pi/</link>
+      <link>https://blue-moon22.github.io/index/tags/raspberry-pi/</link>
       <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/tags/raspberry-pi/</guid>
+      <guid>https://blue-moon22.github.io/index/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Taga</title>
+      <link>https://blue-moon22.github.io/index/tags/taga/</link>
+      <pubDate>Sat, 23 Dec 2017 21:52:05 +0000</pubDate>
+      
+      <guid>https://blue-moon22.github.io/index/tags/taga/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tagb</title>
+      <link>https://blue-moon22.github.io/index/tags/tagb/</link>
+      <pubDate>Sat, 23 Dec 2017 21:52:05 +0000</pubDate>
+      
+      <guid>https://blue-moon22.github.io/index/tags/tagb/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Womeninstem</title>
-      <link>https://blue-moon22.github.io/blog/tags/womeninstem/</link>
+      <link>https://blue-moon22.github.io/index/tags/womeninstem/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/tags/womeninstem/</guid>
+      <guid>https://blue-moon22.github.io/index/tags/womeninstem/</guid>
       <description></description>
     </item>
     

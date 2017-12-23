@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Deep Learning on Vicky&#39;s Blog</title>
-    <link>https://blue-moon22.github.io/blog/tags/deep-learning/</link>
-    <description>Recent content in Deep Learning on Vicky&#39;s Blog</description>
+    <title>Deep Learning on Vicky&#39;s Website</title>
+    <link>https://blue-moon22.github.io/index/tags/deep-learning/</link>
+    <description>Recent content in Deep Learning on Vicky&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>© This post is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License，please give source if you likes to quote or reproduce.</copyright>
     <lastBuildDate>Sun, 19 Nov 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://blue-moon22.github.io/blog/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://blue-moon22.github.io/index/tags/deep-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>A Simple Deep Neural Network in R</title>
-      <link>https://blue-moon22.github.io/blog/post/neural-network/</link>
+      <link>https://blue-moon22.github.io/index/post/code/neural-network/</link>
       <pubDate>Sun, 19 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/blog/post/neural-network/</guid>
+      <guid>https://blue-moon22.github.io/index/post/code/neural-network/</guid>
       <description>Recently, I had an interview for a data science job and I was asked to explain a neural network (which I responded with a quite hand-wavy answer). I haven&amp;rsquo;t posted in a while so thought this would be a good to show a simple deep neural network in R that I did a while back. The code below implements a DNN in R (of one hidden layer, with Rectified Linear Unit, L2 regularisation and Softmax loss function).</description>
     </item>
     
