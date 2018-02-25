@@ -22,27 +22,15 @@ copyright = "© This post is licensed under a Creative Commons Attribution-NonCo
 [[menu.main]]
   name = "home"
   weight = -110
-  identifier = "index"
+  identifier = "home"
   url = "/"
-
-[[menu.main]]
-  name = "Code"
-  weight = -100
-  identifier = "code"
-  url = "/post/code/"
-
-[[menu.main]]
-  name = "Blog"
-  weight = -90
-  identifier = "blog"
-  url = "/post/blog/"
 
 # Add your own params here
 [params]
   author = "Vicky Butt"
   avatar = "/images/dna.png"
   seotitle = "Vicky's Website"
-  subtitle = "Data Science and Bioinformatics PhD Student @ King's College London"
+  subtitle = "Hacking Antibiotic Resistance with Code | President of Innovation Forum KCL | Founder of Researc/hers Code"
   description = ""
   paginate = 10
 

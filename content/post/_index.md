@@ -1,5 +1,6 @@
 ---
 title: "blog"
+layout: "blog"
 author: "Author Name"
 cover: "/img/cover.jpg"
 tags: ["tagA", "tagB"]
