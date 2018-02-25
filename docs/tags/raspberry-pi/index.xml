@@ -14,10 +14,10 @@
     
     <item>
       <title>Make an automatic back-up server using an old raspberry pi</title>
-      <link>https://blue-moon22.github.io/index/post/code/raspberry-pi-backup/</link>
+      <link>https://blue-moon22.github.io/index/post/raspberry-pi-backup/</link>
       <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://blue-moon22.github.io/index/post/code/raspberry-pi-backup/</guid>
+      <guid>https://blue-moon22.github.io/index/post/raspberry-pi-backup/</guid>
       <description>This is a nice and easy project if you need to back up lots of data automatically from your workspace - in my case genomic data from an HPC cluster I wanted to back-up locally in case of disaster. I had an old raspberry pi lying around and I thought I&amp;rsquo;d put it to good use. The benefits of using a raspberry pi instead of a laptop or PC is you can just leave your raspberry pi on and let it do its thing.</description>
     </item>
     

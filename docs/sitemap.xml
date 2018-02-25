@@ -3,57 +3,57 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://blue-moon22.github.io/index/about/</loc>
+    <loc>https://blue-moon22.github.io/index/contact/</loc>
     <lastmod>2017-07-29T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/blog/</loc>
+    <loc>https://blue-moon22.github.io/index/post/</loc>
+    <lastmod>2017-07-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blue-moon22.github.io/index/outreach/</loc>
+    <lastmod>2017-07-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://blue-moon22.github.io/index/post/</loc>
     <lastmod>2017-12-23T21:52:05+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/code/</loc>
-    <lastmod>2017-12-23T21:47:54+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blue-moon22.github.io/index/post/code/neural-network/</loc>
+    <loc>https://blue-moon22.github.io/index/post/neural-network/</loc>
     <lastmod>2017-11-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/code/raspberry-pi-backup/</loc>
+    <loc>https://blue-moon22.github.io/index/post/raspberry-pi-backup/</loc>
     <lastmod>2017-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/blog/women-in-computing/</loc>
+    <loc>https://blue-moon22.github.io/index/post/women-in-computing/</loc>
     <lastmod>2017-07-24T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/blog/phd/</loc>
-    <lastmod>2017-06-15T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://blue-moon22.github.io/index/post/code/install-linux/</loc>
+    <loc>https://blue-moon22.github.io/index/post/install-linux/</loc>
     <lastmod>2017-05-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/code/hidden-markov-models/</loc>
+    <loc>https://blue-moon22.github.io/index/post/hidden-markov-models/</loc>
     <lastmod>2017-05-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/blog/rladies-research-launch/</loc>
+    <loc>https://blue-moon22.github.io/index/post/rladies-research-launch/</loc>
     <lastmod>2017-04-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://blue-moon22.github.io/index/post/blog/first-post/</loc>
+    <loc>https://blue-moon22.github.io/index/post/first-post/</loc>
     <lastmod>2017-04-27T00:00:00+00:00</lastmod>
   </url>
   
@@ -83,11 +83,6 @@
   <url>
     <loc>https://blue-moon22.github.io/index/tags/neural-network/</loc>
     <lastmod>2017-11-19T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://blue-moon22.github.io/index/post/</loc>
     <priority>0</priority>
   </url>
   
